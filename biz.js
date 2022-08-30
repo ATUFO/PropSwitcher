@@ -25,7 +25,7 @@ function process(ans, subenvs) {
     propUtil.writeProps(props)
     
     let currentEnv = props["env"] !== "local"?props["subenv"]:"local"
-    console.log("\n\n已切换至 ====>  " + currentEnv+"\n");
+    console.log("\n\n已切换至 ===>  " + currentEnv+"\n");
 }
 
 
