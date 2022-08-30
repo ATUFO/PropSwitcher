@@ -2,6 +2,9 @@ const inquirer = require("inquirer");
 // const chalk = require("chalk");
 const figlet = require("figlet");
 const shell = require("shelljs");
+const propUtil = require("./utils/PropUtils.js")
+
+
 const init = () => {
   console.log(
       figlet.textSync("Prop Swither", {
@@ -12,7 +15,8 @@ const init = () => {
   );
 };
 
-var cur = "local"
+var propMap = propUtil.getProps()
+var cur = propMap["env"]
 
 const askQuestions = () => {
     const questions = [
