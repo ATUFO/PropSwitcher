@@ -16,13 +16,25 @@ function getProps(){
             continue;
         }
         let tmpKV = line.split("=")
-        if(tmpKV.length == 2){
-            propMap[tmpKV[0]] = tmpKV[1]
+        if(tmpKV.length == 2 && tmpKV[1]!==""){
+            propMap[tmpKV[0]] = tmpKV[1].replace("\r","").replace("\n","")
         }
     }
     return propMap;
 }
 
-module.exports ={
-    getProps
+function writeProps(props){
+    let lines = []
+    for (k in props){
+        lines.push(k+"="+props[k])
+    }
+    let content = lines.join("\n")
+    fs.writeFileSync(config.PROP_FILE_PATH,content)
 }
+
+module.exports ={
+    getProps,
+    writeProps
+}
+
+
