@@ -16,7 +16,7 @@ const init = () => {
 };
 
 var propMap = propUtil.getProps()
-var cur = propMap["env"]
+var cur = propMap["subenv"]
 
 const askQuestions = () => {
     const questions = [
@@ -48,5 +48,5 @@ const askQuestions = () => {
     return inquirer.prompt(questions);
   };
 
-init()
+// init()
 askQuestions().then(res=>{console.log(res);})
